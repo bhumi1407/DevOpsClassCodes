@@ -1,11 +1,11 @@
-mypipeline{
+new commit into  pipeline{
     tools{
         jdk 'myjava'
-        maven 'mymaven1'
+        maven 'mymaven131'
     }
     agent any
     stages{
-        stage('Checkout'){
+        stage('Checkout on git'){
             agent any
             steps{
                 git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
