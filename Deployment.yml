@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+  tasks:
+  - name: install docker
+    yum: name=docker state=present
+ 
+  - name: start docker
+    service: name=docker state=started
+ 
+  - name: get docker file from github
+    git: repo=https://github.com/bhumi1407/DevOpsClassCodes.git dest=/opt/30jul
+
+  - name: build Docker file
+    command: chdir=/tmp/30jul docker build -t myproject30:CICD .
+   
+  - name: create tag to  to image
+    command: docker tag myproject30:CICD bhumi0407/myproject30:CICD
+
+  - name: log in to docker hub
+    command: docker login --username bhumi0407 --password Qwerty@321
+   
+  - name: push the image to dockerhub
+    command: docker push bhumi0407/myproject30:CICD
+
+  - name: remove docker image from ansible server
+    command: docker rmi myproject30:CICD bhumi0407/myproject30:CICD
+    ignore_erros: yes
