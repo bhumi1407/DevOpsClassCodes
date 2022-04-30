@@ -9,12 +9,6 @@
  
   - name: start docker
     service: name=docker state=started
-    
-  - name: log in to docker hub
-    command: docker login --username bhumi0407 --password Qwerty@321
-    
-  - name: pull  the image from dockerhub
-    command: docker pull bhumi0407/myproject30:CICD
 
   - name: run the image to create container
     command: docker run -itd -P myproject30:CICD
