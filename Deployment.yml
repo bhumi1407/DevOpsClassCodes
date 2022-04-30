@@ -11,5 +11,5 @@
     service: name=docker state=started
 
   - name: run the image to create container
-    command: docker pull bhumi0407/myproject30
+    command: docker pull bhumi0407/myproject30:CICD
     
