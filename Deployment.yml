@@ -14,5 +14,5 @@
     command: docker pull bhumi0407/myproject30:CICD
 
   - name: run the image to create container
-    command: docker run -itd -P myproject30:CICD
+    command: docker run -itd -P myproject30:CICD .
     
