@@ -10,6 +10,9 @@
   - name: start docker
     service: name=docker state=started
 
-  - name: run the image to create container
+  - name: pull the image to create container
     command: docker pull bhumi0407/myproject30:CICD
+    
+  - name: run the image to create container
+    command: docker run -itd -P bhumi0407/myproject30:CICD
     
