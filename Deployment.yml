@@ -17,8 +17,8 @@
     service: name=docker state=started
 
   - name: pull the image to create container
-    command: docker pull bhumi0407/myproject30:CICD
+    command: docker pull devopsedu/webapp
     
   - name: run the image to create container
-    command: docker run -itd -P bhumi0407/myproject30:CICD
+    command: docker run -itd -P devopsedu/webapp
     
