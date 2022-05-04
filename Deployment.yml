@@ -4,21 +4,13 @@
   become_user: root
  
   tasks:
-  - name: install httpd
-    yum: name=httpd state=present
-  
-  - name: start httpd
-    service: name=httpd state=started
   
   - name: install docker
     yum: name=docker state=present
  
   - name: start docker
     service: name=docker state=started
-
-  - name: pull the image to create container
-    command: docker pull devopsedu/webapp
     
   - name: run the image to create container
-    command: docker run -itd -P devopsedu/webapp
+    command: docker run -itd -P bhumi0407/myproject30:CICD
     
